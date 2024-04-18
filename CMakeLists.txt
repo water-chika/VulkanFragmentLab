@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(cpp_project)
+project(VulkanFragmentLab)
 
-add_executable(test
+add_subdirectory(glfwpp)
+
+add_executable(VulkanFragmentLab
     main.cpp)
 
-set_target_properties(test PROPERTIES CXX_STANDARD 23)
+set_target_properties(VulkanFragmentLab PROPERTIES CXX_STANDARD 23)
+
+target_link_libraries(VulkanFragmentLab PUBLIC glfwpp)

@@ -1,0 +1,3 @@
+[submodule "glfwpp"]
+	path = glfwpp
+	url = https://github.com/water-chika/glfwpp
