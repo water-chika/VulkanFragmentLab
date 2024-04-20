@@ -90,29 +90,12 @@ int main() {
 		.setSurface(surface)
 	);
 
-	auto color_attachment_blend_state = 
-		vk::PipelineColorBlendAttachmentState{}
-	.setBlendEnable(false).setColorWriteMask(
-		vk::ColorComponentFlagBits::eR |
-		vk::ColorComponentFlagBits::eG |
-		vk::ColorComponentFlagBits::eB |
-		vk::ColorComponentFlagBits::eA);
-	auto color_blend_state = vk::PipelineColorBlendStateCreateInfo{}
-		.setAttachments(color_attachment_blend_state);
-		auto depth_stencil_state = vk::PipelineDepthStencilStateCreateInfo{}
-		.setDepthCompareOp(vk::CompareOp::eAlways);
-	auto [res_0,pipeline] = device.createGraphicsPipeline(nullptr,
-		vk::GraphicsPipelineCreateInfo{}
-		.setPColorBlendState(&color_blend_state)
-		.setPDepthStencilState(&depth_stencil_state)
-	);
-	assert(res_0 == vk::Result::eSuccess);
+	
 
 	while (!glfwpp::window_should_close(window)) {
 		glfwpp::poll_events();
 	}
 
-	device.destroyPipeline(pipeline);
 
 	device.destroySwapchainKHR(swapchain);
 
