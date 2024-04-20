@@ -4,6 +4,8 @@ project(VulkanFragmentLab)
 
 add_subdirectory(glfwpp)
 
+find_package(Vulkan REQUIRED)
+
 add_executable(VulkanFragmentLab
     main.cpp)
 
